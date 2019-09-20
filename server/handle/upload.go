@@ -5,6 +5,7 @@ import(
 	"strings"
 	"net/http"
 	"io/ioutil"
+	"../config"
 	"../fs"
 )
 
@@ -68,7 +69,7 @@ func Upload() http.HandlerFunc {
 
 		//重命名文件名称
 		uploadFile := &fs.File{
-			Host: "http://localhost:3000",
+			Host: "https://" + config.Host,
 			Suffix: getSuffix(header.Filename),
 			Data: fileByte,
 		}
