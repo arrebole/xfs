@@ -25,8 +25,8 @@ type File struct {
 	Status 	   *Status
 }
 
-func (p *File)makeStatus(){
-	hash := p.checkHash()
+func (p *File)make(){
+	hash := HashMd5(p.Data)
 
 	p.Status = &Status{
 		Hash: hash,
@@ -38,7 +38,7 @@ func (p *File)makeStatus(){
 func (p *File) Save() (*Status, error) {
 	
 	// 创建文件的信息
-	p.makeStatus()
+	p.make()
 
 	// 创建存放的文件夹
 	os.MkdirAll(p.savePath(), os.ModePerm)
@@ -56,13 +56,6 @@ func (p *File) Save() (*Status, error) {
 	}
 
 	return p.Status, nil
-}
-
-// checkHash 计算hash值
-func (p *File) checkHash() string {
-	h := md5.New()
-	h.Write(p.Data)
-	return hex.EncodeToString(h.Sum(nil))
 }
 
 // checkURL 文件的链接
@@ -89,4 +82,9 @@ func dateNow() string {
 	return time.Now().Format("2006-01-02")
 }
 
-
+// HashMd5 计算hash值
+func HashMd5(data []byte) string {
+	h := md5.New()
+	h.Write(data)
+	return hex.EncodeToString(h.Sum(nil))
+}
