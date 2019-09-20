@@ -34,7 +34,7 @@ func (p *File)makeStatus(){
 	}
 }
 
-// SaveFile 将图片存储
+// Save 将图片存储
 func (p *File) Save() (*Status, error) {
 	
 	// 创建文件的信息
@@ -58,32 +58,33 @@ func (p *File) Save() (*Status, error) {
 	return p.Status, nil
 }
 
-//CheckHash 计算hash值
+// checkHash 计算hash值
 func (p *File) checkHash() string {
 	h := md5.New()
 	h.Write(p.Data)
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-// CheckURL 文件的链接
+// checkURL 文件的链接
 func (p *File) checkURL(hash string) string {
 	var url = fmt.Sprintf("%s/static/%s/%s.%s", p.Host , dateNow(), hash, p.Suffix)
 	return url
 }
 
-// FullFileName 返回带有文件名的储存路径
+// FullName 返回带有文件名的储存路径
 func (p *File) fullName(hash string) string {
 	var file = fmt.Sprintf("static/%s/%s.%s", dateNow(), hash, p.Suffix)
 	var root,_ = filepath.Abs("./wwwroot")
 	return filepath.Join(root, file)
 }
 
+// savePath 文件存储路径
 func (p *File)savePath()string{
 	var root,_ = filepath.Abs("./wwwroot/static")
 	return filepath.Join(root, dateNow())
 }
 
-//dateNow 计算时间
+//dateNow 当前时间 2019-1-1
 func dateNow() string {
 	return time.Now().Format("2006-01-02")
 }
