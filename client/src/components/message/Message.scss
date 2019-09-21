@@ -1,0 +1,16 @@
+.res-container{
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    
+    .res-contents{
+        width: 100%;
+        input{
+            padding: 5px 0;
+            text-indent: 10px;
+            font-size: 1.2rem;
+            color: rgb(37, 130, 206);
+            width: 100%;
+        }
+    }
+}

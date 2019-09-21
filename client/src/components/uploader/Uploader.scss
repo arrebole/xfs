@@ -1,0 +1,29 @@
+.container{
+    display: flex;
+    width: 90%;
+    max-width: 1270px;
+    margin: auto;
+}
+
+.upload-container{
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    
+    .uploader{
+        border: 1px dashed #ddd;
+        width: 100%;
+    } 
+}
+.ant-upload{
+    display: block;
+    width: 100%;
+}
+
+.upload-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+}
