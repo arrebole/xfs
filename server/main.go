@@ -8,5 +8,5 @@ import (
 func main(){
 	http.Handle("/api/upload", handle.Upload())
 	http.Handle("/", handle.Download())
-	http.ListenAndServe(":3000", nil)	
+	http.ListenAndServe("127.0.0.1:3000", nil)	
 }
