@@ -1,15 +1,6 @@
-/wwwroot/archives/*
 /client/node_modules/*
 /client/build/*
-*.exe
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
+/wwwroot/archives/*
 
 # production
 /build
@@ -20,6 +11,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+*.exe
 
 npm-debug.log*
 yarn-debug.log*
