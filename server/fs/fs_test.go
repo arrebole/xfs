@@ -8,8 +8,7 @@ func TestFs(t *testing.T){
 		Data:       []byte("hello world"),
 		Suffix:     "txt",
 	}
-	_, err := f.Save()
-	if err != nil{
+	if _, err := f.Save(); err != nil{
 		t.Fatal(err.Error())
 	}
 }
@@ -21,8 +20,7 @@ func BenchmarkFs(b *testing.B){
 			Data:       []byte("hello world" + string(i)),
 			Suffix:     "txt",
 		}
-		_, err := f.Save()
-		if err != nil{
+		if _, err := f.Save(); err != nil{
 			b.Fatal(err.Error())
 		}
     }

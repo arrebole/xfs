@@ -11,6 +11,9 @@ import (
 	"time"
 )
 
+var (
+	RootPath,_ = filepath.Abs("./wwwroot/archives")
+)
 // Status ...
 type Status struct {
 	Hash string `json:"hash"`
@@ -60,21 +63,19 @@ func (p *File) Save() (*Status, error) {
 
 // checkURL 文件的链接
 func (p *File) checkURL(hash string) string {
-	var url = fmt.Sprintf("%s/static/%s/%s.%s", p.Host , dateNow(), hash, p.Suffix)
+	var url = fmt.Sprintf("%s/archives/%s/%s.%s", p.Host , dateNow(), hash, p.Suffix)
 	return url
 }
 
-// FullName 返回带有文件名的储存路径
+// FullName 返回带有储存路径的文件名
 func (p *File) fullName(hash string) string {
-	var file = fmt.Sprintf("static/%s/%s.%s", dateNow(), hash, p.Suffix)
-	var root,_ = filepath.Abs("./wwwroot")
-	return filepath.Join(root, file)
+	var file = fmt.Sprintf("%s/%s.%s", dateNow(), hash, p.Suffix)
+	return filepath.Join(RootPath, file)
 }
 
 // savePath 文件存储路径
 func (p *File)savePath()string{
-	var root,_ = filepath.Abs("./wwwroot/static")
-	return filepath.Join(root, dateNow())
+	return filepath.Join(RootPath, dateNow())
 }
 
 //dateNow 当前时间 2019-1-1

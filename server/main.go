@@ -6,7 +6,7 @@ import (
 )
 
 func main(){
-	http.Handle("/static/", handle.Download())
 	http.Handle("/api/upload", handle.Upload())
+	http.Handle("/", handle.Download())
 	http.ListenAndServe(":3000", nil)	
 }

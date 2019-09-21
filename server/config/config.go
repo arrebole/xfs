@@ -13,5 +13,5 @@ func GetHost() string {
 	if os.Getenv("Host") != ""{
 		return  os.Getenv("Host")
 	}
-	return "localhost:3000"
+	return "http://localhost:3000"
 }

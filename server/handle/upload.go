@@ -12,7 +12,7 @@ import(
 type Response struct{
 	Code int	`json:"code"`
 	Message string `json:"message"`
-	Data *fs.Status 
+	Data *fs.Status `json:"data"`
 }
 
 // 用于错误响应数据的缓存
@@ -69,7 +69,7 @@ func Upload() http.HandlerFunc {
 
 		//重命名文件名称
 		uploadFile := &fs.File{
-			Host: "https://" + config.Host,
+			Host: config.Host,
 			Suffix: getSuffix(header.Filename),
 			Data: fileByte,
 		}

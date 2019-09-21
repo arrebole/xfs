@@ -1,0 +1,49 @@
+.home-contents{
+    padding-top: 60px;
+    width: 100%;
+    min-height: 718px;
+}
+
+.container{
+    display: flex;
+    width: 90%;
+    max-width: 1270px;
+    margin: auto;
+}
+
+.upload-container{
+    border: 1px solid #ddd;
+    padding: 10px;
+    
+    .uploader{
+        border: 1px dashed #ddd;
+        width: 100%;
+        .ant-upload{
+            display: block;
+            width: 100%;
+        }
+        .ant-upload > .upload-button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            width: 100%;
+        }
+    
+    } 
+}
+.res-container{
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    .res-contents{
+        width: 100%;
+        input{
+            padding: 5px 0;
+            text-indent: 10px;
+            font-size: 1.2rem;
+            color: rgb(37, 130, 206);
+            width: 100%;
+        }
+    }
+}
